@@ -52,29 +52,6 @@ static int getHash(const int key, const int hashArraySize) {
 }
 
 /**
- * @brief Gets the index where the given `key` is presented in the `hashArray`.
- *        In case the `key` is not present in the `hashArray`, then this
- *        function returns the next available index in the array, where
- *        `hashArray[index] == HASH_INIT_VALUE`.
- *
- * Runs in O(1/2). That means O(1).
- *
- * @param key
- * @param hashArray
- * @param hashArraySize
- * @return
- */
-int findIndexOfKey(const int key, const int *hashArray,
-                   const int hashArraySize) {
-    int hash = key;
-    do {
-        hash = getHash(hash, hashArraySize);
-    } while ((hashArray[hash] != key) && (hashArray[hash] != HASH_INIT_VALUE));
-
-    return hash;
-}
-
-/**
  * @brief Creates a "hash" array with the size of `hashArraySizeOutputParam`,
  *        where each element is initialized with `HASH_INIT_VALUE`.
  *
@@ -97,6 +74,29 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
     }
 
     return hashArray;
+}
+
+/**
+ * @brief Gets the index where the given `key` is presented in the `hashArray`.
+ *        In case the `key` is not present in the `hashArray`, then this
+ *        function returns the next available index in the array, where
+ *        `hashArray[index] == HASH_INIT_VALUE`.
+ *
+ * Runs in O(1/2). That means O(1).
+ *
+ * @param key
+ * @param hashArray
+ * @param hashArraySize
+ * @return
+ */
+int findIndexOfKey(const int key, const int *hashArray,
+                   const int hashArraySize) {
+    int hash = key;
+    do {
+        hash = getHash(hash, hashArraySize);
+    } while ((hashArray[hash] != key) && (hashArray[hash] != HASH_INIT_VALUE));
+
+    return hash;
 }
 
 #endif //HASH_H
