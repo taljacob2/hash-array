@@ -1,7 +1,7 @@
 #include "Hash.h"
 #include <stdio.h>
 
-#define SIZE 10
+#define SIZE 5
 
 /**
  * @brief Prints an each element in an array only once.
@@ -48,10 +48,10 @@ void printEachElementInArrayOnce(const int *sourceArray,
 }
 
 int main() {
-    int sourceArray[SIZE];
+    int sourceArray[SIZE] = {1, 12, 1, 12, 1};
 
-    // Init `sourceArray`.
-    for (int i = 0; i < SIZE; i++) { sourceArray[i] = 0; }
+    //    // Init `sourceArray`.
+    //    for (int i = 0; i < SIZE; i++) { sourceArray[i] = 0; }
 
     printEachElementInArrayOnce(sourceArray, SIZE);
 

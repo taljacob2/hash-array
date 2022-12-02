@@ -53,9 +53,9 @@ static int getHash(const int key, const int hashArraySize) {
 
 int findIndexOfKey(const int key, const int *hashArray,
                    const int hashArraySize) {
-    int hash;
+    int hash = key;
     do {
-        hash = getHash(key, hashArraySize);
+        hash = getHash(hash, hashArraySize);
     } while ((hashArray[hash] != key) && (hashArray[hash] != HASH_INIT_VALUE));
 
     return hash;
