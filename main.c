@@ -18,10 +18,11 @@ void privatePrintEachElementInArrayOnce(const int *sourceArray,
                                         int *      hashArray,
                                         const int  hashArraySize) {
     for (int i = 0; i < sourceArraySize; i++) {
-        const int hash = getHash(sourceArray[i], hashArraySize);
-        if (hashArray[hash] == HASH_INIT_VALUE) {
-            hashArray[hash] = sourceArray[i]; // Insert to `hashArray`.
-            printf("%d, ", sourceArray[i]);   // Do something.
+        const int index =
+                findIndexOfKey(sourceArray[i], hashArray, hashArraySize);
+        if (hashArray[index] == HASH_INIT_VALUE) {
+            hashArray[index] = sourceArray[i]; // Insert to `hashArray`.
+            printf("%d, ", sourceArray[i]);    // Do something.
         }
     }
 }

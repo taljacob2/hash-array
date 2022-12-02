@@ -43,12 +43,22 @@ int getPrimeNumberGreaterOrEqualsToLMT(const int LMT) {
  *
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
  */
-int getMADHash(const int a, const int k, const int b, const int m) {
+static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
 }
 
-int getHash(const int number, const int hashArraySize) {
-    return getMADHash(1, number, 1, hashArraySize);
+static int getHash(const int key, const int hashArraySize) {
+    return getMADHash(1, key, 1, hashArraySize);
+}
+
+int findIndexOfKey(const int key, const int *hashArray,
+                   const int hashArraySize) {
+    int hash;
+    do {
+        hash = getHash(key, hashArraySize);
+    } while ((hashArray[hash] != key) && (hashArray[hash] != HASH_INIT_VALUE));
+
+    return hash;
 }
 
 /**
