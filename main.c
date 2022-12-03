@@ -42,6 +42,7 @@ void printEachElementInArrayOnce(const int *sourceArray,
     free(hashArray);
 }
 
+// For debug prints only.
 void printFirstHashes(const int *sourceArray, const int sourceArraySize) {
     int  hashArraySize = 0;
     int *hashArray     = createHashArray(sourceArraySize, &hashArraySize);
