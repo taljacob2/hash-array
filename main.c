@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define SIZE 10
+#define SIZE 1000
 
 /**
  * @brief Prints an each element in an array only once.
@@ -44,6 +44,7 @@ void printEachElementInArrayOnce(const int *sourceArray,
 
     privatePrintEachElementInArrayOnce(sourceArray, sourceArraySize, hashArray,
                                        hashArraySize);
+    printf("\n");
 
     free(hashArray);
 }
@@ -56,6 +57,7 @@ void printFirstHashes(const int *sourceArray, const int sourceArraySize) {
     for (int i = 0; i < sourceArraySize; i++) {
         printf("%d, ", getHash(sourceArray[i], hashArraySize));
     }
+    printf("\n");
 
     free(hashArray);
 }
@@ -68,17 +70,13 @@ int main() {
     int sourceArray[SIZE];
 
     // Init `sourceArray`.
-    for (int i = 0; i < SIZE; i++) { sourceArray[i] = rand(); }
-
+    for (int i = 0; i < SIZE; i++) { sourceArray[i] = rand() % 20; }
 
     //    // Print `sourceArray`.
     //    for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
     //    printf("\n");
 
-
     printFirstHashes(sourceArray, SIZE);
-//        printEachElementInArrayOnce(sourceArray, SIZE);
-    printf("\n");
-
+    printEachElementInArrayOnce(sourceArray, SIZE);
     return 0;
 }
