@@ -31,7 +31,7 @@ void privatePrintEachElementInArrayOnce(const int *sourceArray,
 /**
  * @brief Prints an each element in an array only once.
  *
- * Runs in O(n).
+ * Runs in Theta(n) in the average case.
  *
  * @param sourceArray
  * @param sourceArraySize
