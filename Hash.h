@@ -145,11 +145,11 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
  */
 int findIndexOfKey(const int key, const int *hashArray,
                    const int hashArraySize) {
-    int hash = getHash(key, hashArraySize);
-    while ((hashArray[hash] != key) && (hashArray[hash] != HASH_INIT_VALUE)) {
-        hash += 1; // Linear increase.
+    int index = getHash(key, hashArraySize);
+    while ((hashArray[index] != key) && (hashArray[index] != HASH_INIT_VALUE)) {
+        index += 1; // Linear increase.
     }
-    return hash;
+    return index;
 }
 
 #endif //HASH_H
