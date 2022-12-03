@@ -56,14 +56,8 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * Where `k` is the key and m is the table size. If we choose the values of `a`
  * and `b` randomly, then each time we pick a different value of `a` and `b` we
  * get a different hash function. Note that the table size `m` must be a prime
- * number. Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
+ * number (m >= 2). Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
  * careful when we choose these parameters.
- *
- * @param a
- * @param k
- * @param b
- * @param m NOTE: Must be at least "2".
- * @return
  *
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
  * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
@@ -90,10 +84,6 @@ static int getHash(const int key, const int hashArraySize) {
  *        `HASH_INIT_VALUE`.
  *
  * @attention Remember to `free` the returned value of this function after use.
- *
- * @param sourceArraySize
- * @param hashArraySizeOutputParam
- * @return
  */
 int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
     const int hashArraySizeAfterFactor =

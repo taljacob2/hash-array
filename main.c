@@ -8,11 +8,6 @@
  * @brief Prints an each element in an array only once.
  *
  * Runs in Theta(n) in the average case.
- *
- * @param sourceArray
- * @param sourceArraySize
- * @param hashArray
- * @param hashArraySize
  */
 void privatePrintEachElementInArrayOnce(const int *sourceArray,
                                         const int  sourceArraySize,
@@ -33,8 +28,6 @@ void privatePrintEachElementInArrayOnce(const int *sourceArray,
  *
  * Runs in Theta(n) in the average case.
  *
- * @param sourceArray
- * @param sourceArraySize
  * @see privatePrintEachElementInArrayOnce(const int *, const int, int *, const int)
  */
 void printEachElementInArrayOnce(const int *sourceArray,
