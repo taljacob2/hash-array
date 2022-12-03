@@ -82,7 +82,8 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
  *        function returns the next available index in the array, where
  *        `hashArray[index] == HASH_INIT_VALUE`.
  *
- * Runs in O(1/2) in the average case. That means O(1) in the average case.
+ * Runs in Theta(1/2) in the average case. That means Theta(1) in the average
+ * case.
  *
  * @param key
  * @param hashArray
