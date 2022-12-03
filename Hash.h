@@ -107,10 +107,17 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
  * Runs in Theta(1/2) in the average case. That means Theta(1) in the average
  * case.
  *
- * @param key
- * @param hashArray
- * @param hashArraySize
- * @return
+ * @param key The "key" to find it's mapped `index` in the given `hashArray`.
+ * @param hashArray The "hash" array to search the given `key` in.
+ * @param hashArraySize The size of the given `hashArray`.
+ * @return - In case the given `key` was found in the `hashArray`:
+ *           Returns the `index` in the `hashArray` where the given `key` is
+ *           found at `hashArray[index]`. i.e. it returns the `index` that
+ *           maintains `hashArray[index] == key`.
+ *         - In case the given `key` was NOT found in the `hashArray`:
+ *           Returns the last location in the hash sequence of the given `key`,
+ *           where the stored value there is `HASH_INIT_VALUE`. i.e. it returns
+ *           the `index` that maintains `hashArray[index] == HASH_INIT_VALUE`.
  */
 int findIndexOfKey(const int key, const int *hashArray,
                    const int hashArraySize) {
