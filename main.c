@@ -72,11 +72,10 @@ int main() {
     // Init `sourceArray`.
     for (int i = 0; i < SIZE; i++) { sourceArray[i] = rand() % 20; }
 
-    //    // Print `sourceArray`.
-    //    for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
-    //    printf("\n");
+    // Print `sourceArray`.
+    for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
+    printf("\n");
 
-    printFirstHashes(sourceArray, SIZE);
     printEachElementInArrayOnce(sourceArray, SIZE);
     return 0;
 }
