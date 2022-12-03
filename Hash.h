@@ -55,8 +55,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * and `b` randomly, then each time we pick a different value of `a` and `b` we
  * get a different hash function. Note that the table size `m` must be a prime
  * number. Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
- * careful when we choose these parameters. `a` and `m` should be relatively
- * prime (A.K.A if `gcd(a, m) == 1`).
+ * careful when we choose these parameters.
  *
  * @param a
  * @param k
@@ -71,30 +70,13 @@ static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
 }
 
-/**
- * @brief Sums all the digits of a given `number`.
- *
- * Can be used to compress a number.
- *
- * @param number A number to sum its digits' values.
- * @return The sum of all the digits' values in then given `number`.
- */
-static int sumDigitsOfNumber(int number) {
-    int sum = 0;
-    for (; number; number /= 10) { sum += number % 10; }
-    return sum;
-}
-
 static int getHash(const int key, const int hashArraySize) {
 
     /*
-     * Insure that "`a` is prime" AND insure that
-     * "`gcd(a, m) == hashArraySize`".
-     * If `hashArraySize` is even, then set `a` to a different prime number.
+     * Set `a` to `1`, and `b` to `0`, to make sure there is no overflow from
+     * the memory size of `int` when calculating the "hash".
      */
-    int a = 2;
-    if (hashArraySize % 2 == 0) { a = 3; }
-    return getMADHash(a, sumDigitsOfNumber(key), 1, hashArraySize);
+    return getMADHash(1, key, 0, hashArraySize);
 }
 
 /**
