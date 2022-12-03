@@ -66,6 +66,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
  * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
  * @see https://cseweb.ucsd.edu/~kube/cls/100/Lectures/lec16/lec16-8.html
+ * @see https://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html
  */
 static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
@@ -91,10 +92,9 @@ static int getHash(const int key, const int hashArraySize) {
  * @return
  */
 int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
-
-    // `LMT` must be at least 2 times `sourceArraySize`.
+    const int hashArraySizeFactor = (int) (1.4 * sourceArraySize);
     *hashArraySizeOutputParam =
-            getPrimeNumberGreaterOrEqualsToLowerLimit(2 * sourceArraySize);
+            getPrimeNumberGreaterOrEqualsToLowerLimit(hashArraySizeFactor);
     int *hashArray = malloc(sizeof(int) * *hashArraySizeOutputParam);
 
     // Init `hashArray` with a value that will probably will never be a "key".
