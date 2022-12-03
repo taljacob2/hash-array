@@ -90,7 +90,7 @@ static int getHash(const int key, const int hashArraySize) {
     /*
      * Insure that "`a` is prime" AND insure that
      * "`gcd(a, m) == hashArraySize`".
-     * If `hashArraySize` is even set `a` to a different prime number.
+     * If `hashArraySize` is even, then set `a` to a different prime number.
      */
     int a = 2;
     if (hashArraySize % 2 == 0) { a = 3; }
