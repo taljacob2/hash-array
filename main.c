@@ -65,10 +65,13 @@ int main() {
     // Init `sourceArray`.
     for (int i = 0; i < SIZE; i++) { sourceArray[i] = rand() % 20; }
 
-    // Print `sourceArray`.
+    printf("Print `sourceArray`: \n");
     for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
     printf("\n");
 
+    printf("\n");
+
+    printf("printEachElementInArrayOnce: \n");
     printEachElementInArrayOnce(sourceArray, SIZE);
     return 0;
 }
