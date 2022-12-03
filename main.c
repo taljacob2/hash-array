@@ -71,13 +71,13 @@ int main() {
     for (int i = 0; i < SIZE; i++) { sourceArray[i] = rand(); }
 
 
-    // Print `sourceArray`.
-    for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
-    printf("\n");
+    //    // Print `sourceArray`.
+    //    for (int i = 0; i < SIZE; i++) { printf("%d, ", sourceArray[i]); }
+    //    printf("\n");
 
 
     printFirstHashes(sourceArray, SIZE);
-    //    printEachElementInArrayOnce(sourceArray, SIZE);
+//        printEachElementInArrayOnce(sourceArray, SIZE);
     printf("\n");
 
     return 0;
