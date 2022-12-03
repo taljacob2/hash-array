@@ -87,7 +87,11 @@ static int sumDigitsOfNumber(int number) {
 
 static int getHash(const int key, const int hashArraySize) {
 
-    // Insure that "`a` is prime" AND insure that "`gcd(a, m) == hashArraySize`".
+    /*
+     * Insure that "`a` is prime" AND insure that
+     * "`gcd(a, m) == hashArraySize`".
+     * If `hashArraySize` is even set `a` to a different prime number.
+     */
     int a = 2;
     if (hashArraySize % 2 == 0) { a = 3; }
     return getMADHash(a, sumDigitsOfNumber(key), 1, hashArraySize);
