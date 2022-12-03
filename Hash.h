@@ -147,7 +147,7 @@ int findIndexOfKey(const int key, const int *hashArray,
                    const int hashArraySize) {
     int index = getHash(key, hashArraySize);
     while ((hashArray[index] != key) && (hashArray[index] != HASH_INIT_VALUE)) {
-        index += 1; // Linear increase.
+        index += 1; // Linear probing.
     }
     return index;
 }
