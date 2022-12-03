@@ -56,7 +56,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * get a different hash function. Note that the table size `m` must be a prime
  * number. Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
  * careful when we choose these parameters. `a` and `m` should be relatively
- * prime (A.K.A if `gcd(a, n) == 1`).
+ * prime (A.K.A if `gcd(a, m) == 1`).
  *
  * @param a
  * @param k
