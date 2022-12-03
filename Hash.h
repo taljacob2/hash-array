@@ -56,7 +56,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * get a different hash function. Note that the table size `m` must be a prime
  * number. Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
  * careful when we choose these parameters. `a` and `m` should be relatively
- * prime.
+ * prime (A.K.A if `gcd(a, n) == 1`).
  *
  * @param a
  * @param k
@@ -65,6 +65,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * @return
  *
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
+ * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
  */
 static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
