@@ -51,11 +51,12 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
 /**
  * @brief The so called MAD method (MAD = Multiply Add Divide).
  *
- * Where k is the key and m is the table size. If we choose the values of a and
- * b randomly, then each time we pick a different value of a and b we get a
- * different hash function. Note that the table size m must be a prime number.
- * Also, 1 ≤ a ≤ m − 1 and 0 ≤ b ≤ m − 1. Thus, we need to be a bit careful
- * when we choose these parameters.
+ * Where `k` is the key and m is the table size. If we choose the values of `a`
+ * and `b` randomly, then each time we pick a different value of `a` and `b` we
+ * get a different hash function. Note that the table size `m` must be a prime
+ * number. Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
+ * careful when we choose these parameters. `a` and `m` should be relatively
+ * prime.
  *
  * @param a
  * @param k
@@ -69,8 +70,22 @@ static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
 }
 
+/**
+ * @brief Sums all the digits of a given `number`.
+ *
+ * Can be used to compress a number.
+ *
+ * @param number A number to sum its digits' values.
+ * @return The sum of all the digits' values in then given `number`.
+ */
+static int sumDigitsOfNumber(int number) {
+    int sum = 0;
+    for (; number; number /= 10) { sum += number % 10; }
+    return sum;
+}
+
 static int getHash(const int key, const int hashArraySize) {
-    return getMADHash(1, key, 1, hashArraySize);
+    return getMADHash(1, sumDigitsOfNumber(key), 1, hashArraySize);
 }
 
 /**
