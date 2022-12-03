@@ -67,6 +67,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
  * @see https://cseweb.ucsd.edu/~kube/cls/100/Lectures/lec16/lec16-8.html
  * @see https://docs.oracle.com/javase/1.5.0/docs/api/java/util/Hashtable.html
+ * @see https://en.wikipedia.org/wiki/Hash_table#Collision_resolution
  */
 static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
@@ -82,8 +83,9 @@ static int getHash(const int key, const int hashArraySize) {
 }
 
 /**
- * @brief Creates a "hash" array with the size of `hashArraySizeOutputParam`,
- *        where each element is initialized with `HASH_INIT_VALUE`.
+ * @brief Creates an "open hash table" with the constant size of
+ *        `hashArraySizeOutputParam`, where each element is initialized with
+ *        `HASH_INIT_VALUE`.
  *
  * @attention Remember to `free` the returned value of this function after use.
  *
