@@ -8,6 +8,8 @@
 
 #define ERROR_PRIME_NOT_FOUND -1
 
+#define HASH_SIZE_FACTOR 1.4
+
 #define HASH_INIT_VALUE INT_MIN
 
 /**
@@ -94,9 +96,10 @@ static int getHash(const int key, const int hashArraySize) {
  * @return
  */
 int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
-    const int hashArraySizeFactor = (int) (1.4 * sourceArraySize);
+    const int hashArraySizeAfterFactor =
+            (int) (HASH_SIZE_FACTOR * sourceArraySize);
     *hashArraySizeOutputParam =
-            getPrimeNumberGreaterOrEqualsToLowerLimit(hashArraySizeFactor);
+            getPrimeNumberGreaterOrEqualsToLowerLimit(hashArraySizeAfterFactor);
     int *hashArray = malloc(sizeof(int) * *hashArraySizeOutputParam);
 
     // Init `hashArray` with a value that will probably will never be a "key".
@@ -113,8 +116,8 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
  *        function returns the next available index in the array, where
  *        `hashArray[index] == HASH_INIT_VALUE`.
  *
- * Runs in Theta(1/2) in the average case. That means Theta(1) in the average
- * case.
+ * Runs in Theta(1/`HASH_SIZE_FACTOR`) in the average case. That means Theta(1)
+ * in the average case.
  *
  * @param key The "key" to find it's mapped `index` in the given `hashArray`.
  * @param hashArray The "hash" array to search the given `key` in.
