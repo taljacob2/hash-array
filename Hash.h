@@ -65,6 +65,7 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  *
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
  * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
+ * @see https://cseweb.ucsd.edu/~kube/cls/100/Lectures/lec16/lec16-8.html
  */
 static int getMADHash(const int a, const int k, const int b, const int m) {
     return (a * k + b) % m;
