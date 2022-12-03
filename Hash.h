@@ -10,7 +10,13 @@
 
 #define HASH_INIT_VALUE INT_MIN
 
-BOOLEAN isPrime(int number) {
+/**
+ * @brief Determines if a given `number` is prime or not.
+ *
+ * @param number The number to determine if is prime or not.
+ * @return `TRUE` if the given `number` is prime. Else, `FALSE`.
+ */
+BOOLEAN isPrime(const int number) {
     for (int i = 2; i <= number / 2; ++i) {
 
         // If `number` is divisible by `i`, then `number` is not prime.
@@ -19,8 +25,24 @@ BOOLEAN isPrime(int number) {
     return TRUE;
 }
 
-int getPrimeNumberGreaterOrEqualsToLMT(const int LMT) {
-    for (int i = LMT; i < 2 * LMT; ++i) {
+/**
+ * @brief Gets the closest prime number that is greater or equals to a given
+ *        `lowerLimit` number.
+ *
+ * @attention This function searches for the primes within the `lowerLimit` and
+ *            `2 * lowerLimit` range. So in case there was no prime number to be
+ *            found in this range, this function will return
+ *            `ERROR_PRIME_NOT_FOUND`.
+ *
+ * @param lowerLimit A number that represents a lower limit. So that this
+ *                   function will return the closest prime number that is
+ *                   greater or equals to it.
+ * @return The closest prime number that is greater or equals to a given
+ *         `lowerLimit` number. Returns `ERROR_PRIME_NOT_FOUND` in case there
+ *         was no prime to be found in the searchable range.
+ */
+int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
+    for (int i = lowerLimit; i < 2 * lowerLimit; ++i) {
         if (isPrime(i)) { return i; }
     }
     return ERROR_PRIME_NOT_FOUND;
@@ -65,7 +87,7 @@ int *createHashArray(const int sourceArraySize, int *hashArraySizeOutputParam) {
 
     // `LMT` must be at least 2 times `sourceArraySize`.
     *hashArraySizeOutputParam =
-            getPrimeNumberGreaterOrEqualsToLMT(2 * sourceArraySize);
+            getPrimeNumberGreaterOrEqualsToLowerLimit(2 * sourceArraySize);
     int *hashArray = malloc(sizeof(int) * *hashArraySizeOutputParam);
 
     // Init `hashArray` with a value that will probably will never be a "key".
