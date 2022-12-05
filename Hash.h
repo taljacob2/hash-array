@@ -56,8 +56,8 @@ int getPrimeNumberGreaterOrEqualsToLowerLimit(const int lowerLimit) {
  * Where `k` is the key and m is the table size. If we choose the values of `a`
  * and `b` randomly, then each time we pick a different value of `a` and `b` we
  * get a different hash function. Note that the table size `m` must be a prime
- * number (m >= 2). Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to be a bit
- * careful when we choose these parameters.
+ * number (m >= 2). Also, `1 ≤ a ≤ m − 1` and `0 ≤ b ≤ m − 1`. Thus, we need to
+ * be a bit careful when we choose these parameters.
  *
  * @see https://userpages.umbc.edu/~chang/cs341.f17/projects/proj5.shtml
  * @see https://crypto.stackexchange.com/questions/72799/how-to-prove-if-a-hash-function-is-collision-resistant
